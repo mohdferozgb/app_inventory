@@ -1,0 +1,428 @@
+<div class="container" style="padding:3em 0em">
+    <div class="row">
+    	<div class="col-md-12">
+            <div class="panel with-nav-tabs panel-info">
+                <div class="panel-heading headingClass">
+                        <ul class="nav nav-tabs" id="detailtabs" style="font-size: 1.2em;">
+                            <li class="active"><a data-target="#detailtabs1default" data-toggle="tab">Application</a></li>
+                            <li><a data-target="#detailtabs2default"  data-toggle="tab">Stakeholders</a></li>
+                            <li><a data-target="#detailtabs3default"  data-toggle="tab">Enterptise Architecture</a></li>
+                            <li><a data-target="#detailtabs4default" data-toggle="tab">Application Architecture							
+</a></li>
+                            <li><a data-target="#detailtabs5default"  data-toggle="tab">IT Infrastructure Architecture													
+</a></li>
+                            <li><a data-target="#detailtabs6default"  data-toggle="tab">Metrics
+</a></li>
+                            <li><a data-target="#detailtabs7default"  data-toggle="tab">Vendor  			
+</a></li>
+                            <li><a data-target="#detailtabs8default"  data-toggle="tab">Responsibility Area
+</a></li>
+                            <li><a data-target="#detailtabs9default"  data-toggle="tab">Current Support Arrangements			
+</a></li>
+                            <li><a data-target="#detailtabs10default"  data-toggle="tab">Current Enhancements Arrangements			
+</a></li>
+                            <li><a data-target="#detailtabs11default"  data-toggle="tab">Source code availability			
+</a></li>
+                            <li><a data-target="#detailtabs12default"  data-toggle="tab">Application Rationalisation	
+</a></li>
+                            <li><a data-target="#detailtabs13default"  data-toggle="tab">General Remarks
+</a></li>
+                            <li><a data-target="#detailtabs14default"  data-toggle="tab">MSA Review	
+</a></li>
+                        </ul>
+                </div>
+                <div class="panel-body">
+                    <div class="tab-content">
+                         
+                        <div class="tab-pane fade in active" id="detailtabs1default">
+                                 <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">App Id:</label>
+                                    <span>{{app.app_id}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">App Name:</label>
+                                    <span>{{app.app_name}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">App Description:</label>
+                                    <span>{{app.app_description}}</span>
+                                </div>
+                                     
+                        </div>
+                        <div class="tab-pane fade" id="detailtabs2default">
+                            
+                                 <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Business Sector / Subsidiary:</label>
+                                     <span>{{app.business_sect}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Business Sub Sector  / Dept:</label>
+                                    <span>{{app.business_subsect}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Business Owner:</label>
+                                    <span>{{app.business_owner}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">IT Dept/Unit:</label>
+                                         <span>{{app.it_dept}}</span>
+                                </div>    
+                                    <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">IT Owner:</label>
+                                         <span>{{app.it_owner}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Domain Lead/ EA:</label>
+                                        <span>{{app.domain_lead}}</span>
+                                </div>
+                                
+                            
+                        </div>
+                        <div class="tab-pane fade" id="detailtabs3default">
+                           
+                                 <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">EA Domain:</label>
+                                     <span>{{app.ea_domain}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Business Capability Group:</label>
+                                     <span>{{app.business_capability}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Business Criticality:</label>
+                                     <span>{{app.business_criticality}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Available Requirements:</label>
+                                    <span>{{app.avail_requirements}}</span>
+                                </div>    
+                                    <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Country Usage:</label>
+                                     <span>{{app.country_usage}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Year Implemented:</label>
+                                     <span>{{app.year_implemented}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Age Of Application:</label>
+                                     <span>{{app.age_of_app}}</span>
+                                </div>    
+                                    <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Message Format:</label>
+                                     <span>{{app.message_format}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Application Plan:</label>
+                                     <span>{{app.app_plan}}</span>
+                                </div>
+                                
+                        </div>
+                        <div class="tab-pane fade" id="detailtabs4default">
+                             
+                                 <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Application Software Type:</label>
+                                    <span>{{app.appsoft_type}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Application Server:</label>
+                                    <span>{{app.app_server}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Integration Type:</label>
+                                    <span>{{app.integrattion_type}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Application Software /Product Name:</label>
+                                   <span>{{app.appsoft_prodname}}</span>
+                                </div>    
+                                    <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Programming Language:</label>
+                                    <span>{{app.prog_lang}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Reporting Tool :</label>
+                                   <span>{{app.report_tool}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Application Architecture:</label>
+                                    <span>{{app.app_architecture}}</span>
+                                </div>    
+                                    <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">N-tier Application Architecture:</label>
+                                    <span>{{app.ntier_app_arch}}</span>
+                                </div>
+                               
+                        </div>
+                        <div class="tab-pane fade" id="detailtabs5default">
+                              
+                                 <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Hosting Location :</label>
+                                    <span>{{app.hosting_location}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Virtualised Environment:</label>
+                                     <span>{{app.virtual_environ}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">DR Available:</label>
+                                      <span>{{app.dr_available}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Application Hardware:</label>
+                                      <span>{{app.app_hardware}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Application Operating System Family:</label>
+                                      <span>{{app.app_os_family}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Application Operating System:</label>
+                                      <span>{{app.app_os}}</span>
+                                </div> 
+                                    <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Database:</label>
+                                      <span>{{app.db}}</span>
+                                </div>
+                                 <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Database Hardware:</label>
+                                      <span>{{app.db_hardware}}</span>
+                                </div> 
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Database Operating System Family:</label>
+                                     <span>{{app.dbos_sys_family}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Database Operating System:</label>
+                                     <span>{{app.db_os}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Client Hardware:</label>
+                                     <span>{{app.client_hardware}}</span>
+                                </div>    
+                                    <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Client Operating System:</label>
+                                      <span>{{app.client_os}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Network Accessibility:</label>
+                                      <span>{{app.nw_accessiblity}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Network:</label>
+                                      <span>{{app.network}}</span>
+                                </div>    
+                               
+                               
+                        </div>
+                        <div class="tab-pane fade" id="detailtabs6default">
+                       
+                                 <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">No of interfaces to other applications :</label>
+                                     <span>{{app.no_inter_otherapp}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Dependency/ integration with core banking:</label>
+                                    <span>{{app.depinteg_core}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Total resources (FTE) supporting application:</label>
+                                     <span>{{app.totres_supapp}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">No of Users :</label>
+                                     <span>{{app.no_of_users}}</span>
+                                </div>    
+                                    <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Type of Users:</label>
+                                    <span>{{app.types_of_users}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">No of Licences:</label>
+                                     <span>{{app.no_of_licenses}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Type of Licence :</label>
+                                     <span>{{app.type_of_license}}</span>
+                                </div>    
+                                    <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Monthly Transaction Volume :</label>
+                                     <span>{{app.monthly_trans}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Software Yearly Support Cost:</label>
+                                     <span>{{app.sw_yearly_cost}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Hardware Yearly Support Cost:</label>
+                                     <span>{{app.half_yearly_cost}}</span>
+                                </div>    
+                                    <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Telco Yearly Support Cost:</label>
+                                     <span>{{app.telco_yearly_cost}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Vendor Support Cost Yearly:</label>
+                                     <span>{{app.vendor_supp_cost}}</span>
+                                </div>    
+                                    <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Project Benefits:</label>
+                                     <span>{{app.proj_benefits}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Yearly Support Cost:</label>
+                                     <span>{{app.yearly_support_cost}}</span>
+                                </div>
+                               
+                        </div>
+                        <div class="tab-pane fade" id="detailtabs7default">
+                                 <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Vendor Supporting Application:</label>
+                                   <span>{{app.vend_supp_app}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Is Application still supported by vendor:</label>
+                                   <span>{{app.isapp_still_vend}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Does Vendor have a local office:</label>
+                                    <span>{{app.vend_hav_locoff}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Any obsolescent technology running to support solution:</label>
+                                    <span>{{app.obs_tech_supp_sol}}</span>
+                                </div>    
+                        </div>
+                        <div class="tab-pane fade" id="detailtabs8default">
+                             
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Obsolete Tech:</label>
+                                    <span>{{app.obsolete_tech}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Obsolete Tech Remarks:</label>
+                                    <span>{{app.obs_tech_remarks}}</span>
+                                </div>
+                               
+                        </div>
+                        <div class="tab-pane fade" id="detailtabs9default">
+                            
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">In-source :</label>
+                                     <span>{{app.curr_supp_insource}}</span>
+                                </div>    
+                                    <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Out Source:</label>
+                                    <span>{{app.curr_supp_osource}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Joint:</label>
+                                     <span>{{app.curr_supp_joint}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Remarks:</label>
+                                     <span>{{app.curr_supp_remarks}}</span>
+                                </div>    
+                               
+                        </div>
+                        <div class="tab-pane fade" id="detailtabs10default">
+                           
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">In-source :</label>
+                                    <span>{{app.curr_enha_insource}}</span>
+                                </div>    
+                                    <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Out Source:</label>
+                                    <span>{{app.curr_enha_osource}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Joint:</label>
+                                    <span>{{app.curr_enha_joint}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Remarks:</label>
+                                    <span>{{app.curr_enha_remarks}}</span>
+                                </div>    
+                               
+                        </div>
+                        <div class="tab-pane fade" id="detailtabs11default">
+                       
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Yes :</label>
+                                        <span>{{app.source_avail_yes}}</span>
+                                </div>    
+                                    <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">No:</label>
+                                    <span>{{app.source_avail_no}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">If no, possibility of purchasing the source code:</label>
+                                    <span>{{app.source_ifno_poss}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Remarks:</label>
+                                    <span>{{app.source_availremark}}</span>
+                                </div>    
+                                
+                        </div>
+                        <div class="tab-pane fade" id="detailtabs12default">
+                             
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Rational Plan:</label>
+                                    <span>{{app.rational_plan}}</span>
+                                </div>    
+                                    <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Remarks:</label>
+                                   <span>{{app.rational_remarks}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                   <label for="exampleInputEmail1">General Remarks:</label>
+                                    <span>{{app.rational_genremark}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">End User Computing Applications:</label>
+                                    <span>{{app.enduser_comp_app}}</span>
+                                </div>    
+                        </div>
+                        <div class="tab-pane fade" id="detailtabs13default">
+                            
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">MSA Worry Bucket:</label>
+                                    <span>{{app.msa_worry_bucket}}</span>
+                                </div>    
+                                    <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Sustainability Assessment Risk:</label>
+                                    <span>{{app.sustain_assessrisk}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                   <label for="exampleInputEmail1">MSA APP:</label>
+                                    <span>{{app.msa_app}}</span>
+                                </div>
+                                
+                        </div>
+                        <div class="tab-pane fade" id="detailtabs14default">
+                           
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">How the technology risk will be resolved:</label>
+                                    <span>{{app.itb_techrisk_involve}}</span>
+                                </div>    
+                                    <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Sustainability Assessment Risk:</label>
+                                    <span>{{app.business_platform}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                   <label for="exampleInputEmail1">Problem Apps:</label>
+                                    <span>{{app.prob_apps}}</span>
+                                </div>
+                                <div class="form-group detailformCls">
+                                   <label for="exampleInputEmail1">BluePrint Critical:</label>
+                                   <span>{{app.blueprint_critical}}</span>
+                                </div>
+                                
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,545 @@
+<div class="container" style="padding:5em 0em">
+    <div class="row">
+    	<div class="col-md-12">
+            <div class="panel with-nav-tabs panel-info">
+                <div class="panel-heading headingClass">
+                        <ul class="nav nav-tabs" id="newtabs"  style="font-size: 1.2em;">
+                            <li class="active"><a data-target="#tab1default" data-toggle="tab">Application</a></li>
+                            <li><a data-target="#tab2default" class="hide" data-toggle="tab">Stakeholders</a></li>
+                            <li><a data-target="#tab3default" class="hide" data-toggle="tab">Enterptise Architecture</a></li>
+                            <li><a data-target="#tab4default" class="hide" data-toggle="tab">Application Architecture							
+</a></li>
+                            <li><a data-target="#tab5default" class="hide" data-toggle="tab">IT Infrastructure Architecture													
+</a></li>
+                            <li><a data-target="#tab6default" class="hide" data-toggle="tab">Metrics
+</a></li>
+                            <li><a data-target="#tab7default" class="hide" data-toggle="tab">Vendor  			
+</a></li>
+                            <li><a data-target="#tab8default" class="hide" data-toggle="tab">Responsibility Area
+</a></li>
+                            <li><a data-target="#tab9default" class="hide" data-toggle="tab">Current Support Arrangements			
+</a></li>
+                            <li><a data-target="#tab10default" class="hide" data-toggle="tab">Current Enhancements Arrangements			
+</a></li>
+                            <li><a data-target="#tab11default" class="hide" data-toggle="tab">Source code availability			
+</a></li>
+                            <li><a data-target="#tab12default" class="hide" data-toggle="tab">Application Rationalisation	
+</a></li>
+                            <li><a data-target="#tab13default" class="hide" data-toggle="tab">General Remarks
+</a></li>
+                            <li><a data-target="#tab14default" class="hide" data-toggle="tab">MSA Review	
+</a></li>
+                        </ul>
+                </div>
+                <div class="panel-body">
+                    <div class="tab-content">
+                         
+                        <div class="tab-pane fade in active" id="tab1default">
+                           <form ng-submit="AddtoInventry('save','1')">
+                                 <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">App Id:</label>
+                                    <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Enter an App Id" ng-model="app.app_id" pattern="[a-zA-Z0-9? ,_-]{3,50}$" maxlength="50"  required title="This field accepts only alphanumeric minimum of 3 maximum 50 characters">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">App Name:</label>
+                                    <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Enter an App Name" ng-model="app.app_name" pattern="[a-zA-Z0-9? ,_-]{3,100}$"  maxlength="100" required title="
+This field accepts only alphanumeric minimum of 3 maximum 100 characters
+">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">App Description:</label>
+                                    <textarea type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Enter an Description" ng-model="app.app_description" pattern="[a-zA-Z0-9? ,_-]{3,1000}$"  maxlength="1000" required title="
+This field accepts only alphanumeric minimum of 3 maximum 1000 characters
+"></textarea>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                         <button type="submit" class="btn btn-primary btn-sm pull-right next-step" style="margin: 1.5em;">
+                                       Save</button>
+                                    </div>
+                                </div>       
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="tab2default">
+                             <form ng-submit="AddtoInventry('save','2')">
+                                 <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Business Sector / Subsidiary:</label>
+                                    <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Enter a Business Sector" ng-model="app.business_sect" pattern="[a-zA-Z0-9? ,_-]{3,20}$" required title="This field accepts only alphanumeric minimum of 3 maximum 20 characters" maxlength="20">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Business Sub Sector  / Dept:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Enter a Business Sub-Sector" ng-model="app.business_subsect" pattern="[a-zA-Z0-9? ,_-]{3,100}$" required title="This field accepts only alphanumeric minimum of 3 maximum 100 characters" maxlength="100">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Business Owner:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Enter an App Owner" ng-model="app.business_owner" pattern="[a-zA-Z0-9? ,_-]{3,50}$" required title="This field accepts only alphanumeric minimum of 3 maximum 50 characters" maxlength="50">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">IT Dept/Unit:</label>
+                                    <input type="text" class="form-control"  pattern="[a-zA-Z0-9? ,_-]{3,100}$" aria-describedby="emailHelp" placeholder="Enter an IT Dept" maxlength="100" ng-model="app.it_dept" required title="This field accepts only alphanumeric minimum of 3 maximum 100 characters">
+                                </div>    
+                                    <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">IT Owner:</label>
+                                    <input type="text" class="form-control" pattern="[a-zA-Z0-9? ,_-]{3,50}$" aria-describedby="emailHelp" placeholder="Enter an IT Owner" ng-model="app.it_owner" required title="This field accepts only alphanumeric minimum of 3 maximum 50 characters" maxlength="50">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Domain Lead/ EA:</label>
+                                    <input type="text" class="form-control"  pattern="[a-zA-Z0-9? ,_-]{3,50}$" aria-describedby="emailHelp" placeholder="Enter an Domain Lead" ng-model="app.domain_lead" required title="This field accepts only alphanumeric minimum of 3 maximum 50 characters" maxlength="50">
+                                </div>
+                                <!--div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">App Description:</label>
+                                    <textarea type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Description" ng-model="app.app_description" required title="Please enter a Application Description"></textarea>
+                                </div-->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                         <button type="submit" class="btn btn-primary btn-sm pull-right next-step" style="margin: 1.5em;">
+                                       Save</button>
+                                    </div>
+                                </div>       
+                            </form> 
+                            
+                        </div>
+                        <div class="tab-pane fade" id="tab3default">
+                            <form ng-submit="AddtoInventry('save','3')">
+                                 <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">EA Domain:</label>
+                                    <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Enter an EA Domain" ng-model="app.ea_domain" pattern="[a-zA-Z0-9? ,_-]{3,20}$" required title="This field accepts only alphanumeric minimum of 3 maximum 20 characters" maxlength="20">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Business Capability Group:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Business Capability Group" maxlength="500" ng-model="app.business_capability" pattern="[a-zA-Z0-9? ,_-]{3,500}$" required title="This field accepts only alphanumeric minimum of 3 maximum 500 characters">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Business Criticality:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Business Criticality" maxlength="50" ng-model="app.business_criticality" pattern="[a-zA-Z0-9? ,_-]{3,50}$" required title="This field accepts only alphanumeric minimum of 3 maximum 50 characters">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Available Requirements:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Availability Requirements" maxlength="50" pattern="[a-zA-Z0-9? ,_-]{3,50}$" ng-model="app.avail_requirements" required title="This field accepts only alphanumeric minimum of 3 maximum 50 characters" />
+                                </div>    
+                                    <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Country Usage:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Country Usage" ng-model="app.country_usage" maxlength="20" pattern="[a-zA-Z0-9? ,_-]{2,20}$" required title="This field accepts only alphanumeric minimum of 3 maximum 20 characters">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Year Implemented:</label>
+                                    <input type="number" class="form-control"  aria-describedby="emailHelp" placeholder="Year Implemented" ng-model="app.year_implemented"  min="1900" max="{{currentyear}}" pattern="[0-9]{1,4}$" required title="This field accepts only number 4 characters starting from 1900" ng-change="setyearimpl(app.year_implemented)">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Age Of Application:</label>
+                                    <input type="number" class="form-control ageofape"  aria-describedby="emailHelp" placeholder="Age Of  Application" ng-model="app.age_of_app"  max="200" pattern="[0-9]{1,4}$" required title="This field accepts only number characters" readonly>
+                                </div>    
+                                    <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Message Format:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Message Format" ng-model="app.message_format"  pattern="[a-zA-Z? ,_-]{2,50}$" required title="This field accepts only alphabets minimum of 2 maximum 50 characters" maxlength="50">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Application Plan:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Application Plan" ng-model="app.app_plan" pattern="[a-zA-Z0-9? ,_-]{5,50}$" required title="This field accepts only alphanumeric minimum of 5 maximum 50 characters" maxlength="50">
+                                </div>
+                                <!--div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">App Description:</label>
+                                    <textarea type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Description" ng-model="app.app_description" required title="Please enter a Application Description"></textarea>
+                                </div-->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                         <button type="submit" class="btn btn-primary btn-sm pull-right next-step" style="margin: 1.5em;">
+                                       Save</button>
+                                    </div>
+                                </div>       
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="tab4default">
+                             <form ng-submit="AddtoInventry('save','4')">
+                                 <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Application Software Type:</label>
+                                    <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Application Software Type" ng-model="app.appsoft_type" pattern="[a-zA-Z0-9? ,_-]{3,50}$" required title="This field accepts only alphanumeric minimum of 3 maximum 50 characters" maxlength="50">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Application Server:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Application Server" maxlength="50" ng-model="app.app_server" pattern="[a-zA-Z0-9? ,_-]{3,50}$" required title="This field accepts only alphanumeric minimum of 3 maximum 50 characters">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Integration Type:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Integration Type" maxlength="50" ng-model="app.integrattion_type" pattern="[a-zA-Z0-9? ,_-]{3,50}$" required title="This field accepts only alphanumeric minimum of 3 maximum 50 characters">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Application Software /Product Name:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Application Software /Product Name" maxlength="50" pattern="[a-zA-Z0-9? ,_-]{3,50}$" ng-model="app.appsoft_prodname" required title="This field accepts only alphanumeric minimum of 3 maximum 50 characters">
+                                </div>    
+                                    <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Programming Language:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Country Usage" ng-model="app.prog_lang" maxlength="50" pattern="[a-zA-Z0-9? ,_-]{2,50}$" required title="This field accepts only alphanumeric minimum of 2 maximum 20 characters">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Reporting Tool :</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Reporting Tool" ng-model="app.report_tool" maxlength="50" pattern="[a-zA-Z0-9? ,_-]{2,50}$"  required title="This field accepts only alphanumeric minimum of 2 maximum 20 characters">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Application Architecture:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Application Architecture" ng-model="app.app_architecture"  maxlength="50" pattern="[a-zA-Z0-9? ,_-]{2,50}$" required title="This field accepts only alphanumeric minimum of 3 maximum 50 characters">
+                                </div>    
+                                    <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">N-tier Application Architecture:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="N-tier Application Architecture" ng-model="app.ntier_app_arch"  pattern="[a-zA-Z? ,_-]{2,50}$" required title="This field accepts only alphabets minimum of 3 maximum 50 characters" maxlength="50">
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                         <button type="submit" class="btn btn-primary btn-sm pull-right next-step" style="margin: 1.5em;">
+                                       Save</button>
+                                    </div>
+                                </div>       
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="tab5default">
+                              <form ng-submit="AddtoInventry('save','5')">
+                                 <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Hosting Location :</label>
+                                    <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Hosting Location " ng-model="app.hosting_location" pattern="[a-zA-Z0-9? ,_-]{3,50}$" required title="
+This field accepts only alphanumeric minimum 3 and maximum 50 characters" maxlength="50">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Virtualised Environment:</label>
+                                    <input type="text" class="form-control"  placeholder="Virtualised Environment" maxlength="20" ng-model="app.virtual_environ" pattern="[a-zA-Z0-9? ,_-]{3,20}$" required title="This field accepts only alphanumeric minimum 3 and maximum 20 characters">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">DR Available:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="DR Available" maxlength="20" ng-model="app.dr_available" pattern="[a-zA-Z0-9? ,_-]{3,20}$" required title="This field accepts only alphanumeric minimum 3 and maximum 20 characters">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Application Hardware:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Application Software /Product Name" maxlength="50" pattern="[a-zA-Z0-9? ,_-]{3,50}$" ng-model="app.app_hardware" required title="This field accepts only alphanumeric minimum 3 and maximum 50 characters">
+                                </div>    
+                                    <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Application Operating System Family:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Country Usage" ng-model="app.app_os_family" maxlength="50" pattern="[a-zA-Z0-9? ,_-]{2,50}$" required title="This field accepts only alphanumeric minimum 2 and maximum 50 characters">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Application Operating System:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Reporting Tool" ng-model="app.app_os" maxlength="50" pattern="[a-zA-Z0-9? ,_-]{2,50}$"  required title="This field accepts only alphanumeric minimum 2 and maximum 50 characters">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Database:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Application Architecture" ng-model="app.db"  maxlength="50" pattern="[a-zA-Z0-9? ,_-]{2,50}$" required title="This field accepts only alphanumeric minimum 2 and maximum 50 characters">
+                                </div>    
+                                    <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Database Hardware:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="N-tier Application Architecture" ng-model="app.db_hardware"  pattern="[a-zA-Z? ,_-]{2,50}$" required title="This field accepts only alphabets minimum 2 and maximum 50 characters" maxlength="50">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Database Operating System Family :</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Reporting Tool" ng-model="app.dbos_sys_family" maxlength="50" pattern="[a-zA-Z0-9? ,_-]{2,50}$"  required title="This field accepts only alphanumeric minimum 2 and maximum 50 characters">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Database Operating System:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Reporting Tool" ng-model="app.db_os" maxlength="50" pattern="[a-zA-Z0-9? ,_-]{2,50}$"  required title="This field accepts only alphanumeric minimum 2 and maximum 50 characters">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Client Hardware:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Application Architecture" ng-model="app.client_hardware"  maxlength="50" pattern="[a-zA-Z0-9? ,_-]{2,50}$" required title="This field accepts only alphanumeric minimum 2 and maximum 50 characters">
+                                </div>    
+                                    <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Client Operating System:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="N-tier Application Architecture" ng-model="app.client_os"  pattern="[a-zA-Z? ,_-]{2,50}$" required title="This field accepts only alphabets minimum 2 and maximum 50 characters" maxlength="50">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Network Accessibility:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Application Architecture" ng-model="app.nw_accessiblity"  maxlength="50" pattern="[a-zA-Z0-9? ,_-]{2,50}$" required title="This field accepts only alphanumeric minimum 2 and maximum 50 characters">
+                                </div>    
+                                    <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Network:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="N-tier Application Architecture" ng-model="app.network"  pattern="[a-zA-Z? ,_-]{2,50}$" required title="This field accepts only alphabets minimum 2 and maximum 50 characters" maxlength="50">
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                         <button type="submit" class="btn btn-primary btn-sm pull-right next-step" style="margin: 1.5em;">
+                                       Save</button>
+                                    </div>
+                                </div>       
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="tab6default">
+                            <form ng-submit="AddtoInventry('save','6')">
+                                 <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">No of interfaces to other applications :</label>
+                                    <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="No of interfaces to other applications " ng-model="app.no_inter_otherapp" pattern="[a-zA-Z0-9? ,_-]{3,50}$" required title="This field accepts only alphanumeric minimum 3 and maximum 50 characters" maxlength="50">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Dependency/ integration with core banking:</label>
+                                    <input type="text" class="form-control"  placeholder="Dependency/ integration with core banking" maxlength="50" ng-model="app.depinteg_core" pattern="[a-zA-Z0-9? ,_-]{3,50}$" required title="This field accepts only alphanumeric minimum 3 and maximum 50 characters">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Total resources (FTE) supporting application:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Total resources (FTE) supporting application" maxlength="50" ng-model="app.totres_supapp" pattern="[a-zA-Z0-9? ,_-]{3,50}$" required title="This field accepts only alphanumeric minimum 3 and maximum 50 characters">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">No of Users :</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="No of Users" maxlength="50" pattern="[a-zA-Z0-9? ,_-]{3,50}$" ng-model="app.no_of_users" required title="This field accepts only alphanumeric minimum 3 and maximum 50 characters">
+                                </div>    
+                                    <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Type of Users:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Type of Users" ng-model="app.types_of_users" maxlength="50" pattern="[a-zA-Z0-9? ,_-]{3,50}$" required title="This field accepts only alphanumeric minimum 3 and maximum 50 characters">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">No of Licences:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="No of Licences" ng-model="app.no_of_licenses" maxlength="50" pattern="[a-zA-Z0-9? ,_-]{3,50}$"  required title="This field accepts only alphanumeric minimum 3 and maximum 50 characters">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Type of Licence :</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Type of Licence" ng-model="app.type_of_license"  maxlength="50" pattern="[a-zA-Z0-9? ,_-]{3,50}$" required title="This field accepts only alphanumeric minimum 3 and maximum 50 characters">
+                                </div>    
+                                    <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Monthly Transaction Volume :</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Monthly Transaction Volume" ng-model="app.monthly_trans"  pattern="[a-zA-Z? ,_-]{3,50}$" required title="This field accepts only alphabets minimum 3 and maximum 50 characters" maxlength="50">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Software Yearly Support Cost:</label>
+                                    <input type="number" class="form-control"  aria-describedby="emailHelp" placeholder="Software Yearly Support Cost" ng-model="app.sw_yearly_cost" pattern="[0-9]{2,20}$"  required title="
+This field accepts only numbers minimum 1 and maximum 20 characters">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Hardware Yearly Support Cost:</label>
+                                    <input type="number" class="form-control"  aria-describedby="emailHelp" placeholder="Hardware Yearly Support Cost" ng-model="app.half_yearly_cost" pattern="[0-9]{2,20}$" required title="This field accepts only numbers minimum 2 and maximum 20 characters">
+                                </div>    
+                                    <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Telco Yearly Support Cost:</label>
+                                    <input type="number" class="form-control"  aria-describedby="emailHelp" placeholder="Telco Yearly Support Cost" ng-model="app.telco_yearly_cost"  pattern="[0-9]{2,20}$" required title="This field accepts only numbers minimum 2 and maximum 20 characters">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Vendor Support Cost Yearly:</label>
+                                    <input type="number" class="form-control"  aria-describedby="emailHelp" placeholder="Vendor Support Cost Yearly" ng-model="app.vendor_supp_cost"  pattern="[0-9]{2,20}$" required title="This field accepts only numbers minimum 2 and maximum 20 characters">
+                                </div>    
+                                    <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Project Benefits:</label>
+                                    <input type="number" class="form-control"  aria-describedby="emailHelp" placeholder="N-tier Application Architecture" ng-model="app.proj_benefits"  pattern="[0-9]{2,20}$" required title="This field accepts only numbers minimum 2 and maximum 20 characters">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Yearly Support Cost:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Yearly Support Cost" ng-model="app.yearly_support_cost"  pattern="[a-zA-Z0-9? ,_-]{3,50}$" required title="This field accepts only alphanumeric minimum 3 and maximum 50 characters" maxlength="50">
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                         <button type="submit" class="btn btn-primary btn-sm pull-right next-step" style="margin: 1.5em;">
+                                       Save</button>
+                                    </div>
+                                </div>       
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="tab7default">
+                              <form ng-submit="AddtoInventry('save','7')">
+                                 <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Vendor Supporting Application:</label>
+                                    <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Vendor Supporting Application" ng-model="app.vend_supp_app" pattern="[a-zA-Z0-9? ,_-]{3,50}$" required title="This field accepts only alphanumeric minimum 3 and maximum 50 characters" maxlength="50">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Is Application still supported by vendor:</label>
+                                    <input type="text" class="form-control"  placeholder="Is Application still supported by vendor" maxlength="50" ng-model="app.isapp_still_vend" pattern="[a-zA-Z0-9? ,_-]{3,50}$" required title="This field accepts only alphanumeric minimum 3 and maximum 50 characters">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Does Vendor have a local office:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Does Vendor have a local office" maxlength="20" ng-model="app.vend_hav_locoff" pattern="[a-zA-Z? ,_-]{3,20}$" required title="This field accepts only alphabets  minimum 3 maximum 20 characters">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Any obsolescent technology running to support solution:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Any obsolescent technology running to support solution" maxlength="20" pattern="[a-zA-Z? ,_-]{3,20}$" ng-model="app.obs_tech_supp_sol" required title="This field accepts only alphabets  minimum 3 maximum 20 characters">
+                                </div>    
+                                <div class="row">
+                                    <div class="col-md-12">
+                                         <button type="submit" class="btn btn-primary btn-sm pull-right next-step" style="margin: 1.5em;">
+                                       Save</button>
+                                    </div>
+                                </div>       
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="tab8default">
+                             <form ng-submit="AddtoInventry('save','8')">
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Obsolete Tech:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Obsolete Tech" ng-model="app.obsolete_tech" maxlength="50" pattern="[a-zA-Z0-9? ,_-]{3,50}$" required title="
+This field accepts only alphanumeric minimum 3 and maximum 50 characters">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Obsolete Tech Remarks:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Obsolete Tech Remarks" ng-model="app.obs_tech_remarks" maxlength="500" pattern="[a-zA-Z0-9? ,_-]{3,500}$"  required title="This field accepts only alphanumeric minimum 3 and maximum 500 characters">
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                         <button type="submit" class="btn btn-primary btn-sm pull-right next-step" style="margin: 1.5em;">
+                                       Save</button>
+                                    </div>
+                                </div>       
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="tab9default">
+                            <form ng-submit="AddtoInventry('save','9')">
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">In-source :</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Current Support Arrangements In-source" ng-model="app.curr_supp_insource"  maxlength="20" pattern="[a-zA-Z? ,_-]{3,20}$" required title="This field accepts only alphabets  minimum 3 maximum 20 characters">
+                                </div>    
+                                    <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Out Source:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Current Support Arrangements Out Source" ng-model="app.curr_supp_osource"  maxlength="20" pattern="[a-zA-Z? ,_-]{3,20}$" required title="This field accepts only alphabets  minimum 3 maximum 20 characters" maxlength="20">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Joint:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Current Support Arrangements Joint" ng-model="app.curr_supp_joint" maxlength="20" pattern="[a-zA-Z? ,_-]{3,20}$"  required title="This field accepts only alphabets  minimum 3 maximum 20 characters">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Remarks:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Current Support Arrangements Remarks"  maxlength="500" ng-model="app.curr_supp_remarks" pattern="[a-zA-Z0-9? ,_-]{3,500}$" required title="This field accepts only alphanumeric minimum 3 and maximum 500 characters">
+                                </div>    
+                                <div class="row">
+                                    <div class="col-md-12">
+                                         <button type="submit" class="btn btn-primary btn-sm pull-right next-step" style="margin: 1.5em;">
+                                       Save</button>
+                                    </div>
+                                </div>       
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="tab10default">
+                            <form ng-submit="AddtoInventry('save','10')">
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">In-source :</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Current Enhancements Arrangements In-source" ng-model="app.curr_enha_insource"  maxlength="20" pattern="[a-zA-Z? ,_-]{3,20}$" required title="This field accepts only alphabets  minimum 3 maximum 20 characters">
+                                </div>    
+                                    <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Out Source:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Current Enhancements Arrangements Out Source" ng-model="app.curr_enha_osource"  maxlength="20" pattern="[a-zA-Z? ,_-]{3,20}$" required title="This field accepts only alphabets  minimum 3 maximum 20 characters" maxlength="20">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Joint:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Current Enhancements Arrangements Joint" ng-model="app.curr_enha_joint" maxlength="20" pattern="[a-zA-Z? ,_-]{3,20}$"  required title="This field accepts only alphabets  minimum 3 maximum 20 characters">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Remarks:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Current Enhancements Arrangements Remarks"  maxlength="500" ng-model="app.curr_enha_remarks" pattern="[a-zA-Z0-9? ,_-]{2,500}$" required title="This field accepts only alphanumeric minimum 3 and maximum 500 characters">
+                                </div>    
+                                <div class="row">
+                                    <div class="col-md-12">
+                                         <button type="submit" class="btn btn-primary btn-sm pull-right next-step" style="margin: 1.5em;">
+                                       Save</button>
+                                    </div>
+                                </div>       
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="tab11default">
+                             <form ng-submit="AddtoInventry('save','11')">
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Yes :</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Source code availability In-source" ng-model="app.source_avail_yes"  maxlength="20" pattern="[a-zA-Z? ,_-]{3,20}$" required title="This field accepts only alphabets  minimum 3 maximum 20 characters">
+                                </div>    
+                                    <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">No:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Source code availability Out Source" ng-model="app.source_avail_no"  maxlength="20" pattern="[a-zA-Z? ,_-]{3,20}$" required title="This field accepts only alphabets  minimum 3 maximum 20 characters">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">If no, possibility of purchasing the source code:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Source code availability If not" ng-model="app.source_ifno_poss" maxlength="20" pattern="[a-zA-Z? ,_-]{3,20}$"  required title="This field accepts only alphabets  minimum 3 maximum 20 characters">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Remarks:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Source code availability Remarks"  maxlength="500" ng-model="app.source_availremark" pattern="[a-zA-Z0-9? ,_-]{2,500}$" required title="This field accepts only alphanumeric minimum 3 and maximum 500 characters">
+                                </div>    
+                                <div class="row">
+                                    <div class="col-md-12">
+                                         <button type="submit" class="btn btn-primary btn-sm pull-right next-step" style="margin: 1.5em;">
+                                       Save</button>
+                                    </div>
+                                </div>       
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="tab12default">
+                             <form ng-submit="AddtoInventry('save','12')">
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Rational Plan:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Rational Plan" ng-model="app.rational_plan"  maxlength="50" pattern="[a-zA-Z0-9? ,_-]{3,50}$" required title="This field accepts only alphanumeric minimum 3 and maximum 50 characters">
+                                </div>    
+                                    <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Remarks:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Rational Plan Remarks" ng-model="app.rational_remarks"  maxlength="1000" pattern="[a-zA-Z0-9? ,_-]{3,1000}$" required title="
+This field accepts only alphanumeric minimum 3 and maximum 1000 characters">
+                                </div>
+                                <div class="form-group detailformCls">
+                                   <label for="exampleInputEmail1">General Remarks:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Rational Plan General Remarks" ng-model="app.rational_genremark"  maxlength="1000" pattern="[a-zA-Z0-9? ,_-]{3,1000}$" required title="This field accepts only alphanumeric minimum 3 and maximum 1000 characters">
+                                </div>
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">End User Computing Applications:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="End User Computing Applications"  maxlength="500" ng-model="app.enduser_comp_app" pattern="[a-zA-Z0-9? ,_-]{2,500}$" required title="This field accepts only alphanumeric minimum 3 and maximum 500 characters">
+                                </div>    
+                                <div class="row">
+                                    <div class="col-md-12">
+                                         <button type="submit" class="btn btn-primary btn-sm pull-right next-step" style="margin: 1.5em;">
+                                       Save</button>
+                                    </div>
+                                </div>       
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="tab13default">
+                             <form ng-submit="AddtoInventry('save','13')">
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">MSA Worry Bucket:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="MSA Worry Bucket" ng-model="app.msa_worry_bucket"  maxlength="50" pattern="[a-zA-Z0-9? ,_-]{3,50}$" required title="This field accepts only alphanumeric minimum 3 and maximum 50 characters">
+                                </div>    
+                                    <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Sustainability Assessment Risk:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Sustainability Assessment Risk" ng-model="app.sustain_assessrisk"  maxlength="50" pattern="[a-zA-Z0-9? ,_-]{3,50}$" required title="This field accepts only alphanumeric minimum 3 and maximum 50 characters">
+                                </div>
+                                <div class="form-group detailformCls">
+                                   <label for="exampleInputEmail1">MSA APP:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="MSA APP" ng-model="app.msa_app"  maxlength="50" pattern="[a-zA-Z0-9? ,_-]{3,50}$" required title="This field accepts only alphanumeric minimum 3 and maximum 50 characters">
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                         <button type="submit" class="btn btn-primary btn-sm pull-right next-step" style="margin: 1.5em;">
+                                       Save</button>
+                                    </div>
+                                </div>       
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="tab14default">
+                            <form ng-submit="AddtoInventry('Submit','null')">
+                                <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">How the technology risk will be resolved:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="How the technology risk will be resolved" ng-model="app.itb_techrisk_involve"  maxlength="50" pattern="[a-zA-Z0-9? ,_-]{3,50}$" required title="This field accepts only alphanumeric minimum 3 and maximum 50 characters">
+                                </div>    
+                                    <div class="form-group detailformCls">
+                                    <label for="exampleInputEmail1">Sustainability Assessment Risk:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Business Platform" ng-model="app.business_platform"  maxlength="50" pattern="[a-zA-Z0-9? ,_-]{3,50}$" required title="This field accepts only alphanumeric minimum 3 and maximum 50 characters">
+                                </div>
+                                <div class="form-group detailformCls">
+                                   <label for="exampleInputEmail1">Problem Apps:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Problem Apps" ng-model="app.prob_apps"  maxlength="50" pattern="[a-zA-Z0-9? ,_-]{3,50}$" required title="This field accepts only alphanumeric minimum 3 and maximum 50 characters">
+                                </div>
+                                <div class="form-group detailformCls">
+                                   <label for="exampleInputEmail1">BluePrint Critical:</label>
+                                    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="BluePrint Critical" ng-model="app.blueprint_critical"  maxlength="50" pattern="[a-zA-Z0-9? ,_-]{3,50}$" required title="This field accepts only alphanumeric minimum 3 and maximum 50 characters">
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                         <button type="submit" class="btn btn-primary btn-sm pull-right next-step" style="margin: 1.5em;">
+                                       Submit</button>
+                                    </div>
+                                </div>       
+                            </form>
+                        </div>
+                             <!--div class="row">
+                                    <div class="col-md-12">
+                                         <button type="submit" class="btn btn-default btn-sm pull-right" style="margin: 1.5em;">
+                                       Submit</button>
+                                    </div>
+                                </div-->
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+            <button type="button" class="btn btn-default" ng-click="backbtn()" data-toggle="button" aria-pressed="false" autocomplete="off">
+              Cancel
+            </button>
+    </div>
+    
+</div>
+<br/>

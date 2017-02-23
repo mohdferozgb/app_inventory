@@ -1,0 +1,1069 @@
+<div class="" myRefresh style="padding:5em 0em" ng-show="isloggedIn">
+    <div class="row" style="padding: 3em 0em;">
+        <div class="col-md-12 text-center">
+            <div class="col-md-2">
+                <div class="btn btn-primary actionbtnCls" ng-click="Addnew()">Add <span class="ti-plus"></span></div>
+            </div>
+            <div class="col-md-8">
+                <div class="input-group" style="width: 100%;">
+                    <input type="text" class="form-control" placeholder="Search your Apps" ng-model="searcht" aria-describedby="basic-addon1" style="height: 6em;padding:0em 3em">
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="btn btn-success actionbtnCls" ng-click="export2excel('apptable')">Export <span class="ti-export"></span></div>
+                </div>
+            </div>
+    </div> 
+               
+           <!--div id="grid1" ui-grid="gridOptions" class="grid"></div-->
+           
+    <div class="row" style="margin: 2em;">
+        <!--div class="col-md-2">
+            &nbsp;
+        </div-->
+        <div class="col-md-12">
+            <div style="    position: relative;
+        overflow-y: hidden;
+    width: 100%;
+    height: auto;">
+       
+         <!--select style="width: 15em;padding: 2em;margin-bottom: 1em;">
+             <option>Select</option>
+             <option ng-repeat="n in smallarray"  ng-if="$index >= 2">{{n}}</option> 
+        </select-->
+        <div class="panel panel-default" style="border:none">
+                <div class="btn btn-primary" ng-show="!showmore" ng-click="showmoreless(true)"  style="padding: 1em 1.5em;font-size: 1.2em;">Show More Attributes</div>
+                <div class="btn btn-default" ng-show="showmore" ng-click="showmoreless(false)"  style="padding: 1em 1.5em;font-size: 1.2em;">Show Less Attributes</div>
+                <!--List group -->
+                <div class="list-group" ng-show="!showmore">
+                     <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Description of Application</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="app_desc" name="someSwitchOption001" type="checkbox" ng-model="app_desc" />
+                            <label for="app_desc" class="label-primary"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                       <div class="listheadingCls">Business Sector/ Subsidiary</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 4em;">
+                            <input id="buss_sector" name="someSwitchOption001" type="checkbox" ng-model="buss_sector"/>
+                            <label for="buss_sector" class="label-default"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Business Sub-Sector/Dept</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="buss_subsect" name="someSwitchOption001" type="checkbox" ng-model="buss_subsect" />
+                            <label for="buss_subsect" class="label-primary"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-group" ng-show="showmore">
+                     <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Description of Application</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="app_desc" name="someSwitchOption001" type="checkbox" ng-model="app_desc" />
+                            <label for="app_desc" class="label-primary"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                       <div class="listheadingCls">Business Sector/ Subsidiary</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 4em;">
+                            <input id="buss_sector" name="someSwitchOption001" type="checkbox" ng-model="buss_sector"/>
+                            <label for="buss_sector" class="label-default"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Business Sub-Sector/Dept</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="buss_subsect" name="someSwitchOption001" type="checkbox" ng-model="buss_subsect" />
+                            <label for="buss_subsect" class="label-primary"></label>
+                        </div>
+                    </div>
+                     <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Business Owner</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="bus_owner" name="someSwitchOption001" type="checkbox" ng-model="bus_owner" />
+                            <label for="bus_owner" class="label-primary"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                       <div class="listheadingCls">IT Dept/Unit</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 4em;">
+                            <input id="it_dept" name="someSwitchOption001" type="checkbox" ng-model="it_dept"/>
+                            <label for="it_dept" class="label-default"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">IT Owner</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="it_owner" name="someSwitchOption001" type="checkbox" ng-model="it_owner" />
+                            <label for="it_owner" class="label-primary"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Domain/Lead EA</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="domain_lead" name="someSwitchOption001" type="checkbox" ng-model="domain_lead" />
+                            <label for="domain_lead" class="label-primary"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                       <div class="listheadingCls">EA Domain</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 4em;">
+                            <input id="ea_domain" name="someSwitchOption001" type="checkbox" ng-model="ea_domain"/>
+                            <label for="ea_domain" class="label-default"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Business Capability Group</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="bus_capagrop" name="someSwitchOption001" type="checkbox" ng-model="bus_capagrop" />
+                            <label for="bus_capagrop" class="label-primary"></label>
+                        </div>
+                    </div>
+                     <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Business Criticality</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="bus_criticality" name="someSwitchOption001" type="checkbox" ng-model="bus_criticality" />
+                            <label for="bus_criticality" class="label-primary"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                       <div class="listheadingCls">Availability Requirements</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 4em;">
+                            <input id="avail_req" name="someSwitchOption001" type="checkbox" ng-model="avail_req"/>
+                            <label for="avail_req" class="label-default"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Country Usage</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="country_usage" name="someSwitchOption001" type="checkbox" ng-model="country_usage" />
+                            <label for="country_usage" class="label-primary"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Year Implemented</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="year_implement" name="someSwitchOption001" type="checkbox" ng-model="year_implement" />
+                            <label for="year_implement" class="label-primary"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                       <div class="listheadingCls">Age of Application</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 4em;">
+                            <input id="age_of_app" name="someSwitchOption001" type="checkbox" ng-model="age_of_app"/>
+                            <label for="age_of_app" class="label-default"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Message Format</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="message_format" name="someSwitchOption001" type="checkbox" ng-model="message_format" />
+                            <label for="message_format" class="label-primary"></label>
+                        </div>
+                    </div>
+                     <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Application Plan</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="app_plan" name="someSwitchOption001" type="checkbox" ng-model="app_plan" />
+                            <label for="app_plan" class="label-primary"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                       <div class="listheadingCls">Application Software Type</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 4em;">
+                            <input id="app_soft_type" name="someSwitchOption001" type="checkbox" ng-model="app_soft_type"/>
+                            <label for="app_soft_type" class="label-default"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Application Server</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="app_server" name="someSwitchOption001" type="checkbox" ng-model="app_server" />
+                            <label for="app_server" class="label-primary"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Integration Type</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="integration_type" name="someSwitchOption001" type="checkbox" ng-model="integration_type" />
+                            <label for="integration_type" class="label-primary"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                       <div class="listheadingCls">Application Software /Product Name</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 4em;">
+                            <input id="app_soft_prodname" name="someSwitchOption001" type="checkbox" ng-model="app_soft_prodname"/>
+                            <label for="app_soft_prodname" class="label-default"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Programming Language</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="prog_language" name="someSwitchOption001" type="checkbox" ng-model="prog_language" />
+                            <label for="prog_language" class="label-primary"></label>
+                        </div>
+                    </div>
+                     <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Reporting Tool</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="report_tool" name="someSwitchOption001" type="checkbox" ng-model="report_tool" />
+                            <label for="report_tool" class="label-primary"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                       <div class="listheadingCls">Application Architecture</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 4em;">
+                            <input id="app_architecture" name="someSwitchOption001" type="checkbox" ng-model="app_architecture"/>
+                            <label for="app_architecture" class="label-default"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">N-tier Application Architecture</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="ntier_app_architecture" name="someSwitchOption001" type="checkbox" ng-model="ntier_app_architecture" />
+                            <label for="ntier_app_architecture" class="label-primary"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Hosting Location</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="host_location" name="someSwitchOption001" type="checkbox" ng-model="host_location" />
+                            <label for="host_location" class="label-primary"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                       <div class="listheadingCls">Virtualised Environment</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 4em;">
+                            <input id="virtual_environment" name="someSwitchOption001" type="checkbox" ng-model="virtual_environment"/>
+                            <label for="virtual_environment" class="label-default"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">DR Available</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="dr_available" name="someSwitchOption001" type="checkbox" ng-model="dr_available" />
+                            <label for="dr_available" class="label-primary"></label>
+                        </div>
+                    </div>
+                     <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Application Hardware</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="app_hardware" name="someSwitchOption001" type="checkbox" ng-model="app_hardware" />
+                            <label for="app_hardware" class="label-primary"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                       <div class="listheadingCls">Application Operating System Family</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 4em;">
+                            <input id="app_os_sysfamily" name="someSwitchOption001" type="checkbox" ng-model="app_os_sysfamily"/>
+                            <label for="app_os_sysfamily" class="label-default"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Application Operating System</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="app_os_system" name="someSwitchOption001" type="checkbox" ng-model="app_os_system" />
+                            <label for="app_os_system" class="label-primary"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Database</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="app_db" name="someSwitchOption001" type="checkbox" ng-model="app_db" />
+                            <label for="app_db" class="label-primary"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                       <div class="listheadingCls">Database Hardware</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 4em;">
+                            <input id="app_db_hardware" name="someSwitchOption001" type="checkbox" ng-model="app_db_hardware"/>
+                            <label for="app_db_hardware" class="label-default"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Database Operating System Family</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="db_os_sysfamily" name="someSwitchOption001" type="checkbox" ng-model="db_os_sysfamily" />
+                            <label for="db_os_sysfamily" class="label-primary"></label>
+                        </div>
+                    </div>
+                     <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Database Operating System</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="db_os_system" name="someSwitchOption001" type="checkbox" ng-model="db_os_system" />
+                            <label for="db_os_system" class="label-primary"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                       <div class="listheadingCls">Client Hardware</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 4em;">
+                            <input id="client_hardware" name="someSwitchOption001" type="checkbox" ng-model="client_hardware"/>
+                            <label for="client_hardware" class="label-default"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Client Operating System</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="client_os" name="someSwitchOption001" type="checkbox" ng-model="client_os" />
+                            <label for="client_os" class="label-primary"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Network Accessibility</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="nw_accessibility" name="someSwitchOption001" type="checkbox" ng-model="nw_accessibility" />
+                            <label for="nw_accessibility" class="label-primary"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                       <div class="listheadingCls">Network</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 4em;">
+                            <input id="network" name="someSwitchOption001" type="checkbox" ng-model="network"/>
+                            <label for="network" class="label-default"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">No of interfaces to other applications</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="no_of_othapp" name="someSwitchOption001" type="checkbox" ng-model="no_of_othapp" />
+                            <label for="no_of_othapp" class="label-primary"></label>
+                        </div>
+                    </div>
+                     <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Dependency/ integration with core banking?</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="depend_integ_core" name="someSwitchOption001" type="checkbox" ng-model="depend_integ_core" />
+                            <label for="depend_integ_core" class="label-primary"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                       <div class="listheadingCls">Total resources (FTE) supporting application</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 4em;">
+                            <input id="tot_fte_supapp" name="someSwitchOption001" type="checkbox" ng-model="tot_fte_supapp"/>
+                            <label for="tot_fte_supapp" class="label-default"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">No of Users</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="no_of_users" name="someSwitchOption001" type="checkbox" ng-model="no_of_users" />
+                            <label for="no_of_users" class="label-primary"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Type of Users</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="type_of_users" name="someSwitchOption001" type="checkbox" ng-model="type_of_users" />
+                            <label for="type_of_users" class="label-primary"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                       <div class="listheadingCls">No of Licences</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 4em;">
+                            <input id="no_of_licenses" name="someSwitchOption001" type="checkbox" ng-model="no_of_licenses"/>
+                            <label for="no_of_licenses" class="label-default"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Type of Licence</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="type_of_license" name="someSwitchOption001" type="checkbox" ng-model="type_of_license" />
+                            <label for="type_of_license" class="label-primary"></label>
+                        </div>
+                    </div>
+                     <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Monthly Transaction Volume</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="monthly_trans_vol" name="someSwitchOption001" type="checkbox" ng-model="monthly_trans_vol" />
+                            <label for="monthly_trans_vol" class="label-primary"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                       <div class="listheadingCls">Software Yearly Support Cost</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 4em;">
+                            <input id="soft_year_supcost" name="someSwitchOption001" type="checkbox" ng-model="soft_year_supcost"/>
+                            <label for="soft_year_supcost" class="label-default"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Hardware Yearly Support Cost</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="hard_year_supcost" name="someSwitchOption001" type="checkbox" ng-model="hard_year_supcost" />
+                            <label for="hard_year_supcost" class="label-primary"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Telco Yearly Support Cost</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="telco_year_supcost" name="someSwitchOption001" type="checkbox" ng-model="telco_year_supcost" />
+                            <label for="telco_year_supcost" class="label-primary"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                       <div class="listheadingCls">Vendor Support Cost Yearly</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 4em;">
+                            <input id="vendor_year_supcost" name="someSwitchOption001" type="checkbox" ng-model="vendor_year_supcost"/>
+                            <label for="vendor_year_supcost" class="label-default"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Project Benefits</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="proj_benefits" name="someSwitchOption001" type="checkbox" ng-model="proj_benefits" />
+                            <label for="proj_benefits" class="label-primary"></label>
+                        </div>
+                    </div>
+                     <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Yearly Support Cost to maintain application</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="year_suppcost_mainapp" name="someSwitchOption001" type="checkbox" ng-model="year_suppcost_mainapp" />
+                            <label for="year_suppcost_mainapp" class="label-primary"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                       <div class="listheadingCls">Vendor Supporting Application</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 4em;">
+                            <input id="vendor_supp_app" name="someSwitchOption001" type="checkbox" ng-model="vendor_supp_app"/>
+                            <label for="vendor_supp_app" class="label-default"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Is Application still supported by vendor?</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="isapp_supp_vendor" name="someSwitchOption001" type="checkbox" ng-model="isapp_supp_vendor" />
+                            <label for="isapp_supp_vendor" class="label-primary"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Does Vendor have a local office?</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="does_vendor_localoff" name="someSwitchOption001" type="checkbox" ng-model="does_vendor_localoff" />
+                            <label for="does_vendor_localoff" class="label-primary"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                       <div class="listheadingCls">Any obsolescent technology running to support solution?</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 4em;">
+                            <input id="anyobsol_tech_suppsol" name="someSwitchOption001" type="checkbox" ng-model="anyobsol_tech_suppsol"/>
+                            <label for="anyobsol_tech_suppsol" class="label-default"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Obsolete Tech</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="obsol_tech" name="someSwitchOption001" type="checkbox" ng-model="obsol_tech" />
+                            <label for="obsol_tech" class="label-primary"></label>
+                        </div>
+                    </div>
+                     <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Obsolete Tech Remarks</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="obs_tech_remarks" name="someSwitchOption001" type="checkbox" ng-model="obs_tech_remarks" />
+                            <label for="obs_tech_remarks" class="label-primary"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                       <div class="listheadingCls">Current Support In-source</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 4em;">
+                            <input id="curr_supp_insource" name="someSwitchOption001" type="checkbox" ng-model="curr_supp_insource"/>
+                            <label for="curr_supp_insource" class="label-default"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Current Support Out-source</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="curr_supp_outsource" name="someSwitchOption001" type="checkbox" ng-model="curr_supp_outsource" />
+                            <label for="curr_supp_outsource" class="label-primary"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Current Support Joint</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="curr_supp_joint" name="someSwitchOption001" type="checkbox" ng-model="curr_supp_joint" />
+                            <label for="curr_supp_joint" class="label-primary"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                       <div class="listheadingCls">Current Support Remarks</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 4em;">
+                            <input id="curr_supp_remark" name="someSwitchOption001" type="checkbox" ng-model="curr_supp_remark"/>
+                            <label for="curr_supp_remark" class="label-default"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Current Enhancements In-source</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="curr_enhan_insource" name="someSwitchOption001" type="checkbox" ng-model="curr_enhan_insource" />
+                            <label for="curr_enhan_insource" class="label-primary"></label>
+                        </div>
+                    </div>
+                     <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Current Enhancements Out-source</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="curr_enhan_outsource" name="someSwitchOption001" type="checkbox" ng-model="curr_enhan_outsource" />
+                            <label for="curr_enhan_outsource" class="label-primary"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                       <div class="listheadingCls">Current Enhancements Joint</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 4em;">
+                            <input id="curr_enhan_joint" name="someSwitchOption001" type="checkbox" ng-model="curr_enhan_joint"/>
+                            <label for="curr_enhan_joint" class="label-default"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Current Enhancements Remarks</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="curr_enhan_remark" name="someSwitchOption001" type="checkbox" ng-model="curr_enhan_remark" />
+                            <label for="curr_enhan_remark" class="label-primary"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Source code availability Yes</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="source_code_availyes" name="someSwitchOption001" type="checkbox" ng-model="source_code_availyes" />
+                            <label for="source_code_availyes" class="label-primary"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                       <div class="listheadingCls">Source code availability No</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 4em;">
+                            <input id="source_code_availno" name="someSwitchOption001" type="checkbox" ng-model="source_code_availno"/>
+                            <label for="source_code_availno" class="label-default"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Source code availability If no, possibility of purchasing the source code?</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="source_code_possible" name="someSwitchOption001" type="checkbox" ng-model="source_code_possible" />
+                            <label for="source_code_possible" class="label-primary"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Application Rationalisation Plan</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="app_rational" name="someSwitchOption001" type="checkbox" ng-model="app_rational" />
+                            <label for="app_rational" class="label-primary"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                       <div class="listheadingCls">Application Rationalisation Remarks</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 4em;">
+                            <input id="app_rational_remark" name="someSwitchOption001" type="checkbox" ng-model="app_rational_remark"/>
+                            <label for="app_rational_remark" class="label-default"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Application Rationalisation General Remarks</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="app_rational_genremark" name="someSwitchOption001" type="checkbox" ng-model="app_rational_genremark" />
+                            <label for="app_rational_genremark" class="label-primary"></label>
+                        </div>
+                    </div>
+                     <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">End User Computing Applications</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="enduser_comp_apps" name="someSwitchOption001" type="checkbox" ng-model="enduser_comp_apps" />
+                            <label for="enduser_comp_apps" class="label-primary"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                       <div class="listheadingCls">MSA Worry Bucket</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 4em;">
+                            <input id="msa_worry_bucket" name="someSwitchOption001" type="checkbox" ng-model="msa_worry_bucket"/>
+                            <label for="msa_worry_bucket" class="label-default"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">Sustainability Assessment Risk</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="sustainability_assessment_risk" name="someSwitchOption001" type="checkbox" ng-model="sustainability_assessment_risk" />
+                            <label for="sustainability_assessment_risk" class="label-primary"></label>
+                        </div>
+                    </div>
+                     <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">MSA APP ?</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="msa_app" name="someSwitchOption001" type="checkbox" ng-model="msa_app" />
+                            <label for="msa_app" class="label-primary"></label>
+                        </div>
+                    </div>
+                     <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">ITB Reporting Criteria How the technology risk will be resolved?</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="itb_tech_risk" name="someSwitchOption001" type="checkbox" ng-model="itb_tech_risk" />
+                            <label for="itb_tech_risk" class="label-primary"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                       <div class="listheadingCls">ITB Reporting Criteria Business Platform</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 4em;">
+                            <input id="itb_buss_plat" name="someSwitchOption001" type="checkbox" ng-model="itb_buss_plat"/>
+                            <label for="itb_buss_plat" class="label-default"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">ITB Reporting Criteria Problem Apps</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="itb_prob_apps" name="someSwitchOption001" type="checkbox" ng-model="itb_prob_apps" />
+                            <label for="itb_prob_apps" class="label-primary"></label>
+                        </div>
+                    </div>
+                    <div class="list-group-item listClsitem" >
+                        <div class="listheadingCls">BluePrint Critical</div>
+                        <div class="material-switch pull-right" style="padding: 0.5em 3em;">
+                            <input id="blueprint_critical" name="someSwitchOption001" type="checkbox" ng-model="blueprint_critical" />
+                            <label for="blueprint_critical" class="label-primary"></label>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>  
+         <table id="apptable" class="display nowrap table-striped" cellspacing="0" width="500px" ng-show="(tableData).length >= 1">
+        <thead>
+            <tr class="listheaderCls">
+                     <td class="thheadindCls" ng-click="changeSorting(actions)" ng-show="actions" title="Sort">Actions</td>    
+                     <td class="thheadindCls" ng-click="changeSorting(id)" ng-show="id" title="Sort">
+                              <span>id</span>
+                              <div class="filter"></div>
+                    </td>  
+                     <td class="thheadindCls" ng-click="changeSorting(app_id)" ng-show="app_id" title="Sort">
+                                <span>Application ID</span>
+                                <div class="filter"></div>
+                    </td>    
+                     <td class="thheadindCls" ng-click="changeSorting(app_name)" ng-show="app_name" title="Sort">
+                         
+                              <span>Application Name</span>
+                              <div class="filter"></div>
+                    </td>  
+                     <td class="thheadindCls" ng-click="changeSorting(app_desc)" ng-show="app_desc" title="Sort">
+                            <span>Description of Application</span>
+                              <div class="filter"></div>
+                    </td>    
+                     <td class="thheadindCls" ng-click="changeSorting(buss_sect)" ng-show="buss_sector" title="Sort">
+                              <span>Business Sector/ Subsidiary</span>
+                              <div class="filter"></div>
+                    </td>  
+                    <td class="thheadindCls" ng-click="changeSorting(buss_subsect)" ng-show="buss_subsect" title="Sort">
+                              <span>Business Sub-Sector/Dept</span>
+                              <div class="filter"></div>
+                    </td>
+                    <td class="thheadindCls" ng-click="changeSorting(bus_owner)" ng-show="bus_owner" title="Sort">
+                              <span>Business Owner</span>
+                              <div class="filter"></div>
+                    </td>    
+                     <td class="thheadindCls" ng-click="changeSorting(it_dept)" ng-show="it_dept" title="Sort">
+                              <span>IT Dept/Unit</span>
+                              <div class="filter"></div>
+                    </td>  
+                     <td class="thheadindCls" ng-click="changeSorting(it_owner)" ng-show="it_owner" title="Sort">
+                              <span>IT Owner</span>
+                              <div class="filter"></div>
+                    </td>    
+                     <td class="thheadindCls" ng-click="changeSorting(domain_lead)" ng-show="domain_lead" title="Sort">
+                               <span>Domain/Lead EA</span>
+                              <div class="filter"></div>
+                    </td>  
+                     <td class="thheadindCls" ng-click="changeSorting(ea_domain)" ng-show="ea_domain" title="Sort">
+                              <span>EA Domain</span>
+                              <div class="filter"></div>
+                    </td>    
+                     <td class="thheadindCls" ng-click="changeSorting(bus_capagrop)" ng-show="bus_capagrop" title="Sort">
+                              <span>Business Capability Group</span>
+                              <div class="filter"></div>
+                    </td>  
+                    <td class="thheadindCls" ng-click="changeSorting(bus_criticality)" ng-show="bus_criticality" title="Sort">
+                               <span>Business Criticality</span>
+                              <div class="filter"></div>
+                    </td>
+                    <td class="thheadindCls" ng-click="changeSorting(avail_req)" ng-show="avail_req" title="Sort">
+                              <span>Availability Requirements</span>
+                              <div class="filter"></div>
+                    </td>    
+                     <td class="thheadindCls" ng-click="changeSorting(country_usage)" ng-show="country_usage" title="Sort">
+                             <span>Country Usage</span>
+                              <div class="filter"></div>
+                    </td>  
+                     <td class="thheadindCls" ng-click="changeSorting(year_implement)" ng-show="year_implement" title="Sort">
+                              <span>Year Implemented</span>
+                              <div class="filter"></div>
+                    </td>    
+                     <td class="thheadindCls" ng-click="changeSorting(age_of_app)" ng-show="age_of_app" title="Sort">
+                              <span>Age of Application</span>
+                              <div class="filter"></div>
+                     </td>  
+                     <td class="thheadindCls" ng-click="changeSorting(message_format)" ng-show="message_format" title="Sort">
+                              <span>Message Format</span>
+                              <div class="filter"></div>
+                    </td>    
+                     <td class="thheadindCls" ng-click="changeSorting(app_plan)" ng-show="app_plan" title="Sort">
+                              <span>Application Plan</span>
+                              <div class="filter"></div>
+                    </td>  
+                    <td class="thheadindCls" ng-click="changeSorting(app_soft_type)" ng-show="app_soft_type" title="Sort">
+                              <span>Application Software Type</span>
+                              <div class="filter"></div>
+                    </td>
+                    <td class="thheadindCls" ng-click="changeSorting(app_server)" ng-show="app_server" title="Sort">
+                              <span>Application Server</span>
+                              <div class="filter"></div>
+                    </td>    
+                     <td class="thheadindCls" ng-click="changeSorting(integration_type)" ng-show="integration_type" title="Sort">
+                              <span>Integration Type</span>
+                              <div class="filter"></div>
+                    </td>  
+                     <td class="thheadindCls" ng-click="changeSorting(app_soft_prodname)" ng-show="app_soft_prodname" title="Sort">
+                               <span>Application Software /Product Name</span>
+                              <div class="filter"></div> 
+                    </td>    
+                     <td class="thheadindCls" ng-click="changeSorting(prog_language)" ng-show="prog_language" title="Sort">
+                               <span>Programming Language</span>
+                              <div class="filter"></div> 
+                    </td>  
+                     <td class="thheadindCls" ng-click="changeSorting(report_tool)" ng-show="report_tool" title="Sort">
+                                <span>Reporting Tool</span>
+                              <div class="filter"></div> 
+                    </td>    
+                     <td class="thheadindCls" ng-click="changeSorting(app_architecture)" ng-show="app_architecture" title="Sort">
+                                <span>Application Architecture</span>
+                              <div class="filter"></div> 
+                    </td>  
+                    <td class="thheadindCls" ng-click="changeSorting(ntier_app_architecture)" ng-show="ntier_app_architecture" title="Sort">
+                              <span>N-tier Application Architecture</span>
+                              <div class="filter"></div> 
+                    </td>
+                     <td class="thheadindCls" ng-click="changeSorting(host_location)" ng-show="host_location" title="Sort">
+                              <span>Hosting Location</span>
+                              <div class="filter"></div> 
+                    </td>    
+                     <td class="thheadindCls" ng-click="changeSorting(virtual_environment)" ng-show="virtual_environment" title="Sort">
+                              <span>Virtualised Environment</span>
+                              <div class="filter"></div> 
+                    </td>  
+                     <td class="thheadindCls" ng-click="changeSorting(dr_available)" ng-show="dr_available" title="Sort">
+                              <span>DR Available</span>
+                              <div class="filter"></div> 
+                    </td>    
+                     <td class="thheadindCls" ng-click="changeSorting(app_hardware)" ng-show="app_hardware" title="Sort">
+                              <span>Application Hardware</span>
+                              <div class="filter"></div> 
+                    </td>  
+                    <td class="thheadindCls" ng-click="changeSorting(app_os_sysfamily)" ng-show="app_os_sysfamily" title="Sort">
+                                <span>Application Operating System Family</span>
+                              <div class="filter"></div> 
+                    </td>
+                    <td class="thheadindCls" ng-click="changeSorting(app_os_system)" ng-show="app_os_system" title="Sort">
+                              <span>Application Operating System</span>
+                              <div class="filter"></div> 
+                    </td>    
+                     <td class="thheadindCls" ng-click="changeSorting(app_db)" ng-show="app_db" title="Sort">
+                              <span>Database</span>
+                              <div class="filter"></div>
+                    </td>  
+                     <td class="thheadindCls" ng-click="changeSorting(app_db_hardware)" ng-show="app_db_hardware" title="Sort">
+                            <span>Database Hardware</span>
+                            <div class="filter"></div>
+                    </td>    
+                     <td class="thheadindCls" ng-click="changeSorting(db_os_sysfamily)" ng-show="db_os_sysfamily" title="Sort">
+                            <span>Database Operating System Family</span>
+                            <div class="filter"></div>
+                    </td>  
+                     <td class="thheadindCls" ng-click="changeSorting(db_os_system)" ng-show="db_os_system" title="Sort">
+                            <span>Database Operating System</span>
+                            <div class="filter"></div>
+                    </td>    
+                     <td class="thheadindCls" ng-click="changeSorting(client_hardware)" ng-show="client_hardware" title="Sort">
+                            <span>Client Hardware</span>
+                            <div class="filter"></div>
+                    </td>  
+                    <td class="thheadindCls" ng-click="changeSorting(client_os)" ng-show="client_os" title="Sort">
+                            <span>Client Operating System</span>
+                            <div class="filter"></div>
+                    </td>
+                    <td class="thheadindCls" ng-click="changeSorting(nw_accessibility)" ng-show="nw_accessibility" title="Sort">
+                            <span>Network Accessibility</span>
+                            <div class="filter"></div>
+                    </td>    
+                     <td class="thheadindCls" ng-click="changeSorting(network)" ng-show="network" title="Sort">
+                            <span>Network</span>
+                            <div class="filter"></div>
+                    </td>  
+                     <td class="thheadindCls" ng-click="changeSorting(no_of_othapp)" ng-show="no_of_othapp" title="Sort">
+                            <span>No of interfaces to other applications</span>
+                            <div class="filter"></div>
+                    </td>    
+                     <td class="thheadindCls" ng-click="changeSorting(depend_integ_core)" ng-show="depend_integ_core" title="Sort">
+                             <span>Dependency/ integration with core banking?</span>
+                            <div class="filter"></div>
+                    </td>  
+                     <td class="thheadindCls" ng-click="changeSorting(tot_fte_supapp)" ng-show="tot_fte_supapp" title="Sort">
+                            <span>Total resources (FTE) supporting application</span>
+                            <div class="filter"></div>
+                    </td>    
+                     <td class="thheadindCls" ng-click="changeSorting(no_of_users)" ng-show="no_of_users" title="Sort">
+                             <span>No of Users</span>
+                            <div class="filter"></div>
+                    </td>  
+                    <td class="thheadindCls" ng-click="changeSorting(type_of_users)" ng-show="type_of_users" title="Sort">
+                             <span>Type of Users</span>
+                            <div class="filter"></div>
+                    </td>
+                    <td class="thheadindCls" ng-click="changeSorting(no_of_licenses)" ng-show="no_of_licenses" title="Sort">
+                            <span>No of Licences</span>
+                            <div class="filter"></div>
+                    </td> 
+                    <td class="thheadindCls" ng-click="changeSorting(type_of_license)" ng-show="type_of_license" title="Sort">
+                            <span>Type of Licence</span>
+                            <div class="filter"></div>
+                    </td>  
+                     <td class="thheadindCls" ng-click="changeSorting(monthly_trans_vol)" ng-show="monthly_trans_vol" title="Sort">
+                             <span>Monthly Transaction Volume</span>
+                             <div class="filter"></div>
+                    </td>    
+                     <td class="thheadindCls" ng-click="changeSorting(soft_year_supcost)" ng-show="soft_year_supcost" title="Sort">
+                              <span>Software Yearly Support Cost</span>
+                             <div class="filter"></div>
+                    </td>  
+                     <td class="thheadindCls" ng-click="changeSorting(hard_year_supcost)" ng-show="hard_year_supcost" title="Sort">
+                            <span>Hardware Yearly Support Cost</span>
+                             <div class="filter"></div>
+                    </td>    
+                     <td class="thheadindCls" ng-click="changeSorting(telco_year_supcost)" ng-show="telco_year_supcost" title="Sort">
+                             <span>Telco Yearly Support Cost</span>
+                             <div class="filter"></div>
+                    </td>  
+                    <td class="thheadindCls" ng-click="changeSorting(vendor_year_supcost)" ng-show="vendor_year_supcost" title="Sort">
+                            <span>Vendor Support Cost Yearly</span>
+                             <div class="filter"></div>
+                    </td>
+                    <td class="thheadindCls" ng-click="changeSorting(proj_benefits)" ng-show="proj_benefits" title="Sort">
+                             <span>Project Benefits</span>
+                             <div class="filter"></div>
+                    </td>    
+                     <td class="thheadindCls" ng-click="changeSorting(year_suppcost_mainapp)" ng-show="year_suppcost_mainapp" title="Sort">
+                             <span>Yearly Support Cost to maintain application</span>
+                             <div class="filter"></div>
+                    </td>    
+                     <td class="thheadindCls" ng-click="changeSorting(vendor_supp_app)" ng-show="vendor_supp_app" title="Sort">
+                             <span>Vendor Supporting Application</span>
+                             <div class="filter"></div>
+                    </td>  
+                     <td class="thheadindCls" ng-click="changeSorting(isapp_supp_vendor)" ng-show="isapp_supp_vendor" title="Sort">
+                            <span>Is Application still supported by vendor?</span>
+                             <div class="filter"></div>
+                    </td>    
+                     <td class="thheadindCls" ng-click="changeSorting(does_vendor_localoff)" ng-show="does_vendor_localoff" title="Sort">
+                            <span>Does Vendor have a local office?</span>
+                             <div class="filter"></div>
+                    </td>  
+                    <td class="thheadindCls" ng-click="changeSorting(anyobsol_tech_suppsol)" ng-show="anyobsol_tech_suppsol" title="Sort">
+                            <span>Any obsolescent technology running to support solution?</span>
+                             <div class="filter"></div>
+                    </td>
+                    <td class="thheadindCls" ng-click="changeSorting(obsol_tech)" ng-show="obsol_tech" title="Sort">
+                             <span>Obsolete Tech</span>
+                             <div class="filter"></div>
+                    </td>    
+                     <td class="thheadindCls" ng-click="changeSorting(obs_tech_remarks)" ng-show="obs_tech_remarks" title="Sort">
+                             <span>Obsolete Tech Remarks</span>
+                             <div class="filter"></div>
+                    </td>  
+                     <td class="thheadindCls" ng-click="changeSorting(curr_supp_insource)" ng-show="curr_supp_insource" title="Sort">
+                             <span>Current Support In-source</span>
+                             <div class="filter"></div>
+                    </td>    
+                     <td class="thheadindCls" ng-click="changeSorting(curr_supp_outsource)" ng-show="curr_supp_outsource" title="Sort">
+                            <span>Current Support Out-source</span>
+                             <div class="filter"></div>
+                    </td>  
+                     <td class="thheadindCls" ng-click="changeSorting(curr_supp_joint)" ng-show="curr_supp_joint" title="Sort">
+                            <span>Current Support Joint </span>
+                             <div class="filter"></div>
+                    </td>    
+                     <td class="thheadindCls" ng-click="changeSorting(curr_supp_remark)" ng-show="curr_supp_remark" title="Sort">
+                            <span>Current Support Remarks</span>
+                             <div class="filter"></div>
+                    </td>  
+                    <td class="thheadindCls" ng-click="changeSorting(curr_enhan_insource)" ng-show="curr_enhan_insource" title="Sort">
+                             <span>Current Enhancements In-source</span>
+                             <div class="filter"></div>
+                    </td>
+                    <td class="thheadindCls" ng-click="changeSorting(curr_enhan_outsource)" ng-show="curr_enhan_outsource" title="Sort">
+                            <span>Current Enhancements Out-source</span>
+                             <div class="filter"></div>
+                    </td>    
+                     <td class="thheadindCls" ng-click="changeSorting(curr_enhan_joint)" ng-show="curr_enhan_joint" title="Sort">
+                             <span>Current Enhancements Joint</span>
+                             <div class="filter"></div>
+                    </td>  
+                     <td class="thheadindCls" ng-click="changeSorting(curr_enhan_remark)" ng-show="curr_enhan_remark" title="Sort">
+                             <span>Current Enhancements Remarks</span>
+                             <div class="filter"></div>
+                    </td>    
+                     <td class="thheadindCls" ng-click="changeSorting(source_code_availyes)" ng-show="source_code_availyes" title="Sort">
+                            <span>Source code availability Yes</span>
+                             <div class="filter"></div>
+                    </td>  
+                     <td class="thheadindCls" ng-click="changeSorting(source_code_availno)" ng-show="source_code_availno" title="Sort">
+                             <span>Source code availability No</span>
+                             <div class="filter"></div>
+                    </td>    
+                     <td class="thheadindCls" ng-click="changeSorting(source_code_possible)" ng-show="source_code_possible" title="Sort">
+                              <span>Source code availability If no, possibility of purchasing the source code?</span>
+                             <div class="filter"></div>
+                    </td>  
+                    <td class="thheadindCls" ng-click="changeSorting(app_rational)" ng-show="app_rational" title="Sort">
+                             <span>Application Rationalisation Plan</span>
+                             <div class="filter"></div>
+                    </td>
+                    <td class="thheadindCls" ng-click="changeSorting(app_rational_remark)" ng-show="app_rational_remark" title="Sort">
+                             <span>Application Rationalisation Remarks</span>
+                             <div class="filter"></div>
+                    </td>    
+                     <td class="thheadindCls" ng-click="changeSorting(app_rational_genremark)" ng-show="app_rational_genremark" title="Sort">
+                            <span>Application Rationalisation General Remarks</span>
+                             <div class="filter"></div>
+                    </td>  
+                     <td class="thheadindCls" ng-click="changeSorting(enduser_comp_apps)" ng-show="enduser_comp_apps" title="Sort">
+                            <span>End User Computing Applications</span>
+                             <div class="filter"></div>
+                    </td>    
+                     <td class="thheadindCls" ng-click="changeSorting(msa_worry_bucket)" ng-show="msa_worry_bucket" title="Sort">
+                            <span>MSA Worry Bucket</span>
+                             <div class="filter"></div>
+                    </td>  
+                     <td class="thheadindCls" ng-click="changeSorting(sustainability_assessment_risk)" ng-show="sustainability_assessment_risk" title="Sort">
+                            <span>Sustainability Assessment Risk</span>
+                             <div class="filter"></div>
+                    </td>    
+                     <td class="thheadindCls" ng-click="changeSorting(msa_app)" ng-show="msa_app" title="Sort">
+                            <span>MSA APP ?</span>
+                             <div class="filter"></div>
+                    </td>  
+                    <td class="thheadindCls" ng-click="changeSorting(itb_tech_risk)" ng-show="itb_tech_risk" title="Sort">
+                             <span>ITB Reporting Criteria How the technology risk will be resolved?</span>
+                             <div class="filter"></div> 
+                   </td>
+                     <td class="thheadindCls" ng-click="changeSorting(itb_buss_plat)" ng-show="itb_buss_plat" title="Sort">
+                            <span>ITB Reporting Criteria Business Platform</span>
+                             <div class="filter"></div> 
+                    </td>    
+                     <td class="thheadindCls" ng-click="changeSorting(itb_prob_apps)" ng-show="itb_prob_apps" title="Sort">
+                             <span>ITB Reporting Criteria Problem Apps</span>
+                             <div class="filter"></div> 
+                    </td>    
+                     <td class="thheadindCls" ng-click="changeSorting(blueprint_critical)" ng-show="blueprint_critical" title="Sort">
+                            <span>BluePrint Critical</span>
+                             <div class="filter"></div> 
+                    </td>  
+                     
+            </tr>
+        </thead>
+        <tbody>
+            <tr dir-paginate="val in tableData  | itemsPerPage: PageSize | filter:searcht | orderBy:sort.column:sort.descending">
+                    <td class="listitemCls tableborderleftCls headcol" ng-show="actions">
+                        <span ng-click="editrecord(val)" class="ti-pencil actionCls"></span>
+                        <!--span ng-click="delete(val)" class="ti-close actionCls" ng-show="isadmin && val.isApproved == 0"></span-->
+                        <span ng-click="approve(val)" class="ti-check actionCls" ng-show="isadmin && val.isApproved == 0"></span>
+                        <span ng-click="detailView(val)" class=" ti-zoom-in actionCls"></span>
+                    </td>
+                   <td class="listitemCls" ng-show="id">{{val.id}}</td>
+                   <td class="listitemCls" ng-show="app_id">{{val.app_id}}</td>
+                   <td class="listitemCls" ng-show="app_name">{{val.app_name}}</td>
+                   <td class="listitemCls" ng-show="app_desc">{{val.app_description}}</td>
+                   <td class="listitemCls" ng-show="buss_sector">{{val.business_sect}}</td>
+                   <td class="listitemCls" ng-show="buss_subsect">{{val.business_subsect}}</td>
+                   <td class="listitemCls" ng-show="bus_owner">{{val.business_owner}}</td>
+                   <td class="listitemCls" ng-show="it_dept">{{val.it_dept}}</td>
+                   <td class="listitemCls" ng-show="it_owner">{{val.it_owner}}</td>
+                   <td class="listitemCls" ng-show="domain_lead">{{val.domain_lead}}</td>
+                   <td  class="listitemCls" ng-show="ea_domain">{{val.ea_domain}}</td>
+                   <td class="listitemCls" ng-show="bus_capagrop">{{val.business_capability}}</td>
+                   <td class="listitemCls" ng-show="bus_criticality">{{val.business_criticality}}</td>
+                   <td class="listitemCls" ng-show="avail_req">{{val.avail_requirements}}</td>
+                   <td class="listitemCls" ng-show="country_usage">{{val.country_usage}}</td>
+                    <td  class="listitemCls" ng-show="year_implement">{{val.year_implemented}}</td>
+                   <td class="listitemCls" ng-show="age_of_app">{{val.age_of_app}}</td>
+                   <td class="listitemCls" ng-show="message_format">{{val.message_format}}</td>
+                   <td class="listitemCls" ng-show="app_plan">{{val.app_plan}}</td>
+                   <td class="listitemCls" ng-show="app_soft_type">{{val.appsoft_type}}</td>
+                    <td  class="listitemCls" ng-show="app_server">{{val.app_server}}</td>
+                   <td class="listitemCls" ng-show="integration_type">{{val.integrattion_type}}</td>
+                   <td class="listitemCls" ng-show="app_soft_prodname">{{val.appsoft_prodname}}</td>
+                   <td class="listitemCls" ng-show="prog_language">{{val.prog_lang}}</td>
+                   <td class="listitemCls" ng-show="report_tool">{{val.report_tool}}</td>
+                    <td  class="listitemCls" ng-show="app_architecture">{{val.app_architecture}}</td>
+                   <td class="listitemCls" ng-show="ntier_app_architecture">{{val.ntier_app_arch}}</td>
+                   <td class="listitemCls" ng-show="host_location">{{val.hosting_location}}</td>
+                   <td class="listitemCls" ng-show="virtual_environment">{{val.virtual_environ}}</td>
+                   <td class="listitemCls" ng-show="dr_available">{{val.dr_available}}</td>
+                    <td  class="listitemCls" ng-show="app_hardware">{{val.app_hardware}}</td>
+                   <td class="listitemCls" ng-show="app_os_sysfamily">{{val.app_os_family}}</td>
+                   <td class="listitemCls" ng-show="app_os_system">{{val.app_os}}</td>
+                   <td class="listitemCls" ng-show="app_db">{{val.db}}</td>
+                   <td class="listitemCls" ng-show="app_db_hardware">{{val.db_hardware}}</td>
+                   <td  class="listitemCls" ng-show="db_os_sysfamily">{{val.dbos_sys_family}}</td>
+                    <td  class="listitemCls" ng-show="db_os_system">{{val.db_os}}</td>
+                   <td class="listitemCls" ng-show="client_hardware">{{val.client_hardware}}</td>
+                   <td class="listitemCls" ng-show="client_os">{{val.client_os}}</td>
+                   <td class="listitemCls" ng-show="nw_accessibility">{{val.nw_accessiblity}}</td>
+                   <td class="listitemCls" ng-show="network">{{val.network}}</td>
+                    <td  class="listitemCls" ng-show="no_of_othapp">{{val.no_inter_otherapp}}</td>
+                   <td class="listitemCls" ng-show="depend_integ_core">{{val.depinteg_core}}</td>
+                   <td class="listitemCls" ng-show="tot_fte_supapp">{{val.totres_supapp}}</td>
+                   <td class="listitemCls" ng-show="no_of_users">{{val.no_of_users}}</td>
+                   <td class="listitemCls" ng-show="type_of_users">{{val.types_of_users}}</td>
+                    <td  class="listitemCls" ng-show="no_of_licenses">{{val.no_of_licenses}}</td>
+                   <td class="listitemCls" ng-show="type_of_license">{{val.type_of_license}}</td>
+                   <td class="listitemCls" ng-show="monthly_trans_vol">{{val.monthly_trans}}</td>
+                   <td class="listitemCls" ng-show="soft_year_supcost">{{val.sw_yearly_cost}}</td>
+                   <td class="listitemCls" ng-show="hard_year_supcost">{{val.half_yearly_cost}}</td>
+                    <td  class="listitemCls" ng-show="telco_year_supcost">{{val.telco_yearly_cost}}</td>
+                   <td class="listitemCls" ng-show="vendor_year_supcost">{{val.vendor_supp_cost}}</td>
+                   <td class="listitemCls" ng-show="proj_benefits">{{val.proj_benefits}}</td>
+                   <td class="listitemCls" ng-show="year_suppcost_mainapp">{{val.yearly_support_cost}}</td>
+                   <td class="listitemCls" ng-show="vendor_supp_app">{{val.vend_supp_app}}</td>
+                    <td  class="listitemCls" ng-show="isapp_supp_vendor">{{val.isapp_still_vend}}</td>
+                   <td class="listitemCls" ng-show="does_vendor_localoff">{{val.vend_hav_locoff}}</td>
+                   <td class="listitemCls" ng-show="anyobsol_tech_suppsol">{{val.obs_tech_supp_sol}}</td>
+                   <td class="listitemCls" ng-show="obsol_tech">{{val.obsolete_tech}}</td>
+                   <td class="listitemCls" ng-show="obs_tech_remarks">{{val.obs_tech_remarks}}</td>
+                    <td  class="listitemCls" ng-show="curr_supp_insource">{{val.curr_supp_insource}}</td>
+                   <td class="listitemCls" ng-show="curr_supp_outsource">{{val.curr_supp_osource}}</td>
+                   <td class="listitemCls" ng-show="curr_supp_joint">{{val.curr_supp_joint}}</td>
+                   <td class="listitemCls" ng-show="curr_supp_remark">{{val.curr_supp_remarks}}</td>
+                   <td class="listitemCls" ng-show="curr_enhan_insource">{{val.curr_enha_insource}}</td>
+                    <td  class="listitemCls" ng-show="curr_enhan_outsource">{{val.curr_enha_osource}}</td>
+                   <td class="listitemCls" ng-show="curr_enhan_joint">{{val.curr_enha_joint}}</td>
+                   <td class="listitemCls" ng-show="curr_enhan_remark">{{val.curr_enha_remarks}}</td>
+                   <td class="listitemCls" ng-show="source_code_availyes">{{val.source_avail_yes}}</td>
+                   <td class="listitemCls" ng-show="source_code_availno">{{val.source_avail_no}}</td>
+                    <td  class="listitemCls" ng-show="source_code_possible">{{val.source_ifno_poss}}</td>
+                   <td class="listitemCls" ng-show="source_availremark">{{val.source_availremark}}</td>
+                   <td class="listitemCls" ng-show="app_rational">{{val.rational_plan}}</td>
+                   <td class="listitemCls" ng-show="app_rational_remark">{{val.rational_remarks}}</td>
+                   <td class="listitemCls" ng-show="app_rational_genremark">{{val.rational_genremark}}</td>
+                    <td  class="listitemCls" ng-show="enduser_comp_apps">{{val.enduser_comp_app}}</td>
+                    <td  class="listitemCls" ng-show="msa_worry_bucket">{{val.msa_worry_bucket}}</td>
+                   <td class="listitemCls" ng-show="sustainability_assessment_risk">{{val.sustain_assessrisk}}</td>
+                   <td class="listitemCls" ng-show="msa_app">{{val.msa_app}}</td>
+                   <td class="listitemCls" ng-show="itb_tech_risk">{{val.itb_techrisk_involve}}</td>
+                   <td class="listitemCls" ng-show="itb_buss_plat">{{val.business_platform}}</td>
+                    <td class="listitemCls" ng-show="itb_prob_apps">{{val.prob_apps}}</td>
+                   <td class="listitemCls" ng-show="blueprint_critical">{{val.blueprint_critical}}</td>
+                  
+                </tr>
+        </tbody>
+    </table>
+    <div style="text-align: center;font-size: 1.5em;" ng-show="(tableData).length == 0">
+            App Inventory is empty or apps yet to be approved from admin
+    </div>
+    <dir-pagination-controls template-url="../../node_modules/angular-utils-pagination/dirPagination.tpl.html"></dir-pagination-controls> 
+    </div>
+        </div>
+    </div>
+</div>

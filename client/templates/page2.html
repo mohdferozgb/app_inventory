@@ -1,0 +1,11 @@
+<div class="container" style="padding:3em 0em;height:47em">
+    <div class="row" ng-show="newEntry">
+        <addeditform app="Appdata" invokemethod ="loaddata()"></addeditform>
+    </div>
+    <div class="row" ng-show="EditEntry">
+        <editform app="setData" invokemethod ="loaddata()" ></editform>
+    </div>
+    <div class="row" ng-show="detailview" ng-model="setData">
+        <detailview app="setData" invokemethod ="loaddata()" ></detailview>
+    </div>
+</div>
